@@ -1,0 +1,79 @@
+/* ===== Global Styles ===== */
+body {
+    margin: 0;
+    padding: 0;
+    background: #111;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+  }
+  
+  /* ===== Hero Section ===== */
+  .hero-section {
+    position: relative;
+    padding: 80px 0;
+    overflow: hidden;
+  }
+  
+  .hero-text {
+    z-index: 2;
+  }
+  
+  /* Initial animation for text */
+  .hero-text h1,
+  .hero-text p {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+  }
+  
+  .hero-text h1 {
+    font-size: 3rem;
+    animation-delay: 0.5s;
+  }
+  
+  .hero-text p {
+    font-size: 1.2rem;
+    animation-delay: 0.8s;
+  }
+  
+  /* Text style change on hover */
+  .hero-text h1.hover-text,
+  .hero-text p.hover-text {
+    color: #ff5733;
+    transition: color 0.3s ease;
+  }
+  
+  /* ===== Image Gallery ===== */
+  .hero-images {
+    position: relative;
+  }
+  
+  .image-wrapper {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  
+  /* Default styling for images: vector-like effect */
+  .hero-image {
+    width: 100%;
+    display: block;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: grayscale(100%) contrast(1.2) brightness(0.9);
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 1s;
+  }
+  
+  /* Remove filter on hover */
+  .image-wrapper:hover .hero-image {
+    filter: none;
+  }
+  
+  /* ===== Animations ===== */
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
