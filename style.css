@@ -1,79 +1,140 @@
-/* ===== Global Styles ===== */
 body {
-    margin: 0;
-    padding: 0;
-    background: #111;
-    color: #fff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow-x: hidden;
-  }
-  
-  /* ===== Hero Section ===== */
-  .hero-section {
-    position: relative;
-    padding: 80px 0;
-    overflow: hidden;
-  }
-  
+  background-color: #212121;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+  margin: 0; /* Remove default margin */
+  padding: 0;
+}
+
+.hero-section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-text {
+  font-size: 6rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.1;
+  text-align: center;
+  max-width: 90%;
+  position: absolute;
+  z-index: 1;
+  transition: opacity 0.3s ease-in-out, color 0.3s ease-in-out;
+  color: white;
+}
+
+.image-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-image {
+  width: 280px;
+  height: auto;
+  transition: transform 0.5s ease-out, opacity 0.3s, filter 0.3s;
+  position: absolute;
+  opacity: 1;
+}
+
+/* Positioning images using nth-of-type (only counting <img> tags) */
+.hero-image:nth-of-type(1) {
+  top: 10%;
+  left: 10%;
+}
+.hero-image:nth-of-type(2) {
+  top: 10%;
+  right: 10%;
+}
+.hero-image:nth-of-type(3) {
+  bottom: 10%;
+  left: 10%;
+}
+.hero-image:nth-of-type(4) {
+  bottom: 10%;
+  right: 10%;
+}
+
+.hero-image:hover {
+  transform: scale(1.3);
+  filter: none;
+  opacity: 1;
+}
+
+.hero-image:not(:hover) {
+  filter: grayscale(100%) contrast(200%);
+  opacity: 0.5;
+}
+
+/* Hover text styling */
+.hover-text {
+  position: absolute;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  white-space: nowrap;
+  pointer-events: none; /* So it won't interfere with hover events */
+}
+
+.subheading {
+  font-size: 1.2rem;
+  font-weight: normal;
+  text-transform: none;
+  display: block;
+}
+
+/* -----------------------------
+   MEDIA QUERIES FOR RESPONSIVENESS
+----------------------------- */
+@media (max-width: 992px) {
   .hero-text {
-    z-index: 2;
+    font-size: 5rem;
   }
-  
-  /* Initial animation for text */
-  .hero-text h1,
-  .hero-text p {
-    opacity: 0;
-    animation: fadeIn 1s forwards;
-  }
-  
-  .hero-text h1 {
-    font-size: 3rem;
-    animation-delay: 0.5s;
-  }
-  
-  .hero-text p {
-    font-size: 1.2rem;
-    animation-delay: 0.8s;
-  }
-  
-  /* Text style change on hover */
-  .hero-text h1.hover-text,
-  .hero-text p.hover-text {
-    color: #ff5733;
-    transition: color 0.3s ease;
-  }
-  
-  /* ===== Image Gallery ===== */
-  .hero-images {
-    position: relative;
-  }
-  
-  .image-wrapper {
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 20px;
-    cursor: pointer;
-  }
-  
-  /* Default styling for images: vector-like effect */
   .hero-image {
-    width: 100%;
-    display: block;
-    transition: transform 0.3s ease, filter 0.3s ease;
-    filter: grayscale(100%) contrast(1.2) brightness(0.9);
-    opacity: 0;
-    animation: fadeIn 1s forwards;
-    animation-delay: 1s;
+    width: 240px;
   }
-  
-  /* Remove filter on hover */
-  .image-wrapper:hover .hero-image {
-    filter: none;
+}
+
+@media (max-width: 768px) {
+  .hero-text {
+    font-size: 4rem;
   }
-  
-  /* ===== Animations ===== */
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
-    }
+  .hero-image {
+    width: 200px;
   }
+  .hero-image:nth-of-type(1) {
+    top: 7%;
+    left: 7%;
+  }
+  .hero-image:nth-of-type(2) {
+    top: 7%;
+    right: 7%;
+  }
+  .hero-image:nth-of-type(3) {
+    bottom: 7%;
+    left: 7%;
+  }
+  .hero-image:nth-of-type(4) {
+    bottom: 7%;
+    right: 7%;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-text {
+    font-size: 3rem;
+    line-height: 1.2;
+  }
+  .hero-image {
+    width: 150px;
+  }
+}
